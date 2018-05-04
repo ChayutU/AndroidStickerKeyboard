@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam accumsan metus sed massa aliquet eleifend. Vestibulum urna libero, pretium imperdiet ante at, lacinia facilisis enim. Morbi pretium eros sit amet semper scelerisque. Fusce vitae quam arcu. Nullam tincidunt finibus venenatis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec vel nisl vestibulum, finibus augue nec, fringilla justo. Ut commodo efficitur dui, eu viverra magna congue mattis. Phasellus id cursus nulla, suscipit feugiat arcu. Nunc molestie libero vitae tortor viverra imperdiet. Curabitur quam enim, ornare non turpis nec, tempus eleifend nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam accumsan metus sed massa aliquet eleifend. Vestibulum urna libero, pretium imperdiet ante at, lacinia facilisis enim. Morbi pretium eros sit amet semper scelerisque. Fusce vitae quam arcu. Nullam tincidunt finibus venenatis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec vel nisl vestibulum, finibus augue nec, fringilla justo. Ut commodo efficitur dui, eu viverra magna congue mattis. Phasellus id cursus nulla, suscipit feugiat arcu. Nunc molestie libero vitae tortor viverra imperdiet. Curabitur quam enim, ornare non turpis nec, tempus eleifend nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam accumsan metus sed massa aliquet eleifend. Vestibulum urna libero, pretium imperdiet ante at, lacinia facilisis enim. Morbi pretium eros sit amet semper scelerisque. Fusce vitae quam arcu. Nullam tincidunt finibus venenatis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec vel nisl vestibulum, finibus augue nec, fringilla justo. Ut commodo efficitur dui, eu viverra magna congue mattis. Phasellus id cursus nulla, suscipit feugiat arcu. Nunc molestie libero vitae tortor viverra imperdiet. Curabitur quam enim, ornare non turpis nec, tempus eleifend nisl. " />
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/preview_layout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <ImageView
+            android:id="@+id/iv_sticker_preview"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_margin="6dp" />
+
+        <Button
+            android:id="@+id/dismiss_preview"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:layout_toRightOf="@id/iv_sticker_preview" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/input_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_toggle_sticker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BTN" />
+
+        <EditText
+            android:id="@+id/edit_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SUBMIT" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+</LinearLayout>
