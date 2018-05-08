@@ -45,7 +45,7 @@ class BaseRecyclerAdapter(private var stickerClickListener: StickerClickListener
 
         GlideApp.with(view)
                 .load(stickerItem.thumb)
-                .placeholder(R.mipmap.ic_launcher_round)
+                .override(180)
                 .into(stickerHolder.ivSticker)
 
         stickerHolder.itemView.setOnClickListener {

@@ -6,13 +6,12 @@ import android.os.Bundle
 import android.support.design.widget.TabLayout
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
-import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
-import com.bumptech.glide.Glide
 
 class MainActivity : AppCompatActivity(), BaseRecyclerAdapter.StickerClickListener {
     override fun onStickerClick(stickerItem: StickerItem) {
@@ -95,6 +94,10 @@ class MainActivity : AppCompatActivity(), BaseRecyclerAdapter.StickerClickListen
         btnDismissPreview.setOnClickListener {
             previewLayout.visibility = View.GONE
         }
+
+        editText.setOnClickListener {
+            footerView.visibility = View.GONE
+        }
     }
 
     private fun setupKeyboardEvent() {
@@ -106,8 +109,10 @@ class MainActivity : AppCompatActivity(), BaseRecyclerAdapter.StickerClickListen
                 if (diffHeight == baseHeight && lastDiffHeight == baseHeight && footerView.visibility == View.GONE) {
                     footerView.visibility = View.VISIBLE
                 }
+
                 toggleSoftKeyboard(true)
             } else {
+                footerView.visibility = View.GONE
                 toggleSoftKeyboard(false)
             }
         }
@@ -119,6 +124,7 @@ class MainActivity : AppCompatActivity(), BaseRecyclerAdapter.StickerClickListen
             val screenHeight = rootView.rootView.height
             diffHeight = screenHeight - rect.bottom
 
+            Log.d("QEQE", "Current: $diffHeight <-- Last: $lastDiffHeight")
             if (firstTime) {
                 baseHeight = diffHeight
                 firstTime = false
@@ -127,8 +133,6 @@ class MainActivity : AppCompatActivity(), BaseRecyclerAdapter.StickerClickListen
                     if (keyboardToggleByBtn) {
                         footerView.visibility = View.VISIBLE
                         keyboardToggleByBtn = false
-                    } else {
-                        footerView.visibility = View.GONE
                     }
 
                 }
@@ -159,12 +163,13 @@ class MainActivity : AppCompatActivity(), BaseRecyclerAdapter.StickerClickListen
         val imageView = ImageView(this@MainActivity)
         val layoutParams = WindowManager.LayoutParams(WindowManager.LayoutParams.WRAP_CONTENT,
                 WindowManager.LayoutParams.WRAP_CONTENT)
-
         imageView.layoutParams = layoutParams
 
-        Glide.with(this@MainActivity)
+        GlideApp.with(this@MainActivity)
                 .load(imgUri)
                 .into(imageView)
+
+        imageView.setPadding(6, 6, 6, 6)
         return imageView
     }
 
